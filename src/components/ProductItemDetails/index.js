@@ -1,9 +1,9 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
+import {withRouter} from 'react-router-dom' // Import withRouter
 import Header from '../Header'
 import SimilarProductItem from '../SimilarProductItem'
-import {BsPlusSquare} from 'react-icons/bs'
-import {BsDashSquare} from 'react-icons/bs'
+import {BsPlusSquare, BsDashSquare} from 'react-icons/bs'
 import Loader from 'react-loader-spinner'
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 import './index.css'
@@ -155,29 +155,54 @@ class ProductItemDetails extends Component {
     )
   }
 
-  render() {
+  renderProductandSimilarProductDetails = () => {
     const {isLoading, hasError} = this.state
+
+    if (isLoading) {
+      return (
+        <div className="loader-container" data-testid="loader">
+          <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" />
+        </div>
+      )
+    }
+
+    if (hasError) {
+      return (
+        <div className="error-view">
+          <img
+            src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-error-view-img.png"
+            alt="failure view"
+          />
+          <h1>Product Not Found</h1>
+          <button
+            type="button"
+            onClick={this.handleContinueShopping}
+            className="continue-shopping-btn"
+          >
+            Continue Shopping
+          </button>
+        </div>
+      )
+    }
 
     return (
       <>
-        {isLoading ? (
-          <div className="loader-container" data-testid="loader">
-            <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" />
-          </div>
-        ) : hasError ? (
-          <div className="error-view">
-            <h1>Product Not Found</h1>
-          </div>
-        ) : (
-          <>
-            <Header />
-            {this.renderProductDetails()}
-            {this.renderSimilarProducts()}
-          </>
-        )}
+        <Header />
+        {this.renderProductDetails()}
+        {this.renderSimilarProducts()}
       </>
     )
   }
+
+  handleContinueShopping = () => {
+    const {history} = this.props
+    history.push('/products') // Navigate to the Products route
+  }
+
+  render() {
+    return this.renderProductandSimilarProductDetails()
+  }
 }
 
-export default ProductItemDetails
+// Wrap your component with withRouter
+export default withRouter(ProductItemDetails)
