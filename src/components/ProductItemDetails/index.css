@@ -1,1 +1,103 @@
 /* Write your CSS here */
+.productItemDetailsContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 50vh;
+  margin: 10px;
+  padding: 20px;
+  font-family: Roboto;
+}
+.productDetailImage {
+  max-width: 350px;
+  height: 550px;
+  margin: 10px;
+  border-radius: 10px;
+}
+.productDetailDesc {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 500px;
+  padding: 10px;
+  margin: 3px;
+  box-sizing: border-box;
+}
+.productTitle {
+  color: #1e293b;
+  margin: 5px;
+  padding: 0px;
+}
+.productPrice {
+  color: black;
+  font-size: 25px;
+  font-weight: bolder;
+  margin: 5px;
+  padding: 0px;
+}
+.ratingContainer {
+  background-color: #3b82f6;
+  border-radius: 5px;
+  margin: 3px;
+  width: 115px;
+  height: 35px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.productRating {
+  color: white;
+  font-weight: bolder;
+}
+.ratingandReviewContainer {
+  display: flex;
+}
+.reviewsContainer {
+  font-size: 18px;
+  margin: 5px;
+}
+.productDesc {
+  color: #475569;
+  font-weight: 400;
+}
+.star {
+  height: 20px;
+}
+.countofProduct {
+  display: flex;
+  align-items: center;
+}
+.addCartBtn {
+  background-color: #3b82f6;
+  color: white;
+  border: 0px;
+  border-radius: 5px;
+  width: 135px;
+  height: 38px;
+  margin: 5px;
+}
+.count {
+  margin: 5px;
+}
+.line {
+  width: 100%;
+  height: 2px;
+}
+.similar-products-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+}
+.similar-products-container {
+  margin-left: 100px;
+}
+.iconBtn {
+  outline: none;
+  cursor: pointer;
+  border: 0px;
+  margin: 5px;
+  background-color: transparent;
+}
